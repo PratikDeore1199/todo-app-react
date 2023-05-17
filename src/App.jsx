@@ -1,34 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import DatePicker from "./components/DatePicker.jsx"
+import MessageBox from "./components/MessageBox.jsx"
+import {AiFillPlusSquare,AiFillDelete} from "react-icons/ai"
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+return(
+  <div className="container mt-5">
+    <div className="d-flex flex-row justify-content-center gap-3">
+      <MessageBox></MessageBox>
+      <DatePicker></DatePicker>
+      <AiFillPlusSquare className="text-primary" size={40}/>
+    </div>
+    <div className="d-flex  flex-col justify-content-center">
+      
+      <ol className="list-group mt-4 w-75 text-center ">
+        <h5>Overdue:</h5>
+        <li className="list-group-item rounded-top d-flex align-items-center justify-content-between">
+          <span className=" text-secondary" style={{fontSize:"12px"}}>{new Date().toLocaleDateString()}</span><span className="text-capitalise">First Task</span><AiFillDelete size={30} className="border rounded p-1" color="red"/>
+        </li>
+        <li className="list-group-item">A list item</li>
+        <li className="list-group-item">A list item</li>
+      </ol>
+    </div>
+  </div>
   )
 }
 
