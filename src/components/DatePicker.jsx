@@ -1,15 +1,15 @@
 import { useState } from "react"
 
-const DatePicker = () => {
-const [taskDate,setTaskDate]=useState("")
+const DatePicker = (props) => {
+
     return (
         
         <input
          className="form-control w-25"
          type="date"
-         value={taskDate}
+         value={props.taskDate}
          onChange={(e)=>{
-            setTaskDate(e.target.value)
+            props.setTaskDate(e.target.value)
          }}
          placeholder="Enter task date"></input>
     )
